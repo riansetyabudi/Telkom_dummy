@@ -37,7 +37,7 @@
         </form>
     </div>
 @endsection
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('title')
     Edit Category | Catshop Admin
@@ -76,4 +76,4 @@
             </button>
         </form>
     </div>
-@endsection
+@endsection --}}
