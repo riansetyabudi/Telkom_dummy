@@ -5,75 +5,72 @@
 @endsection
 
 @section('content')
-    <h3>Edit Categories</h3>
-    <div class="form-login">
-        <form action="{{ url('/category/update/' . $category->id_categories) }}" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('put')
-            <label for="categories">Categories</label>
-            <input class="input" type="text" name="nama" id="categories" placeholder="Categories"
-                value="{{ old('nama', $category->nama) }}" />
-            @error('nama')
-                <p style="font-size: 10px; color: red">{{ $message }}</p>
-            @enderror
+    <div class="container">
+        <h3>Edit Categories</h3>
+        <div class="form-login">
+            <form action="{{ url('/category/update/' . $category->id_categories) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('put')
+                <div class="form-group">
+                    <label for="categories">Categories</label>
+                    <input class="form-control" type="text" name="nama" id="categories" placeholder="Categories" value="{{ old('nama', $category->nama) }}" />
+                    @error('nama')
+                        <p class="error-message">{{ $message }}</p>
+                    @enderror
+                </div>
 
-            <label for="price">Price</label>
-            <input class="input" type="text" name="harga" id="price" placeholder="Price"
-                value="{{ old('harga', $category->harga) }}" />
-            @error('harga')
-                <p style="font-size: 10px; color: red">{{ $message }}</p>
-            @enderror
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input class="form-control" type="text" name="harga" id="price" placeholder="Price" value="{{ old('harga', $category->harga) }}" />
+                    @error('harga')
+                        <p class="error-message">{{ $message }}</p>
+                    @enderror
+                </div>
 
-            <label for="photo">Photo</label>
-            <img src="{{ asset('img_categories/' . $category->gambar) }}" alt="" width="200px">
-            <input type="file" name="gambar" id="photo" />
-            @error('gambar')
-                <p style="font-size: 10px; color: red">{{ $message }}</p>
-            @enderror
+                <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <img src="{{ asset('img_categories/' . $category->gambar) }}" alt="" width="200px">
+                    <input type="file" name="gambar" id="photo" />
+                    @error('gambar')
+                        <p class="error-message">{{ $message }}</p>
+                    @enderror
+                </div>
 
-            <button type="submit" class="btn btn-simpan" name="edit" style="margin-top: 50px">
-                Edit
-            </button>
-        </form>
+                <button type="submit" class="btn btn-primary btn-simpan">Edit</button>
+            </form>
+        </div>
     </div>
 @endsection
-{{-- @extends('layouts.app')
 
-@section('title')
-    Edit Category | Catshop Admin
-@endsection
+<style>
+.container {
+    margin-top: 50px;
+}
 
-@section('content')
-    <h3>Edit Categories</h3>
-    <div class="form-login">
-        <form action="{{ url('/category/update/' . $category->id_categories) }}" method="post"
-            enctype="multipart/form-data">
-            @csrf
-            @method('put')
-            <label for="categories">Categories</label>
-            <input class="input" type="text" name="nama" id="categories" placeholder="Categories"
-                value="{{ old('nama', $category->nama) }}" />
-            @error('nama')
-                <p style="font-size: 10px; color: red">{{ $message }}</p>
-            @enderror
+.form-login {
+    max-width: 400px;
+    margin: 0 auto;
+}
 
-            <label for="price">Price</label>
-            <input class="input" type="text" name="harga" id="price" placeholder="Price"
-                value="{{ old('harga', $category->harga) }}" />
-            @error('harga')
-                <p style="font-size: 10px; color: red">{{ $message }}</p>
-            @enderror
+.form-group {
+    margin-bottom: 20px;
+}
 
-            <label for="photo">Photo</label>
-            <img src="{{ asset('img_categories/' . $category->gambar) }}" alt="" width="200px">
-            <input type="file" name="gambar" id="photo" />
-            @error('gambar')
-                <p style="font-size: 10px; color: red">{{ $message }}</p>
-            @enderror
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
 
-            <button type="submit" class="btn btn-simpan" name="edit" style="margin-top: 50px">
-                Edit
-            </button>
-        </form>
-    </div>
-@endsection --}}
+.error-message {
+    font-size: 14px;
+    color: red;
+    margin-top: 5px;
+}
+
+.btn-simpan {
+    margin-top: 20px;
+}
+</style>
