@@ -6,12 +6,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 @section('content')
-<button type="button" class="btn btn-tambah">
-    <a href="/category/tambah"><i class="fas fa-plus"></i> Tambah Data</a>
+<button type="button" class="btn btn-tambah" style="font-size: 20px;">
+    <a href="/category/tambah" style="text-decoration: none;">
+        <i class="fas fa-plus"></i> Tambah Data </a>
 </button>
-    <button type="button" class="btn btn-cetak">
-        <a href="/category/cetak"><i class="fas fa-print"></i> Cetak Data</a>
-    </button>
+<button type="button" class="btn btn-cetak" style="font-size: 20px;">
+    <a href="/category/cetak" style="text-decoration: none;">
+        <i class="fas fa-print"></i> Cetak Data </a>
+</button>
     <table class="table-data">
         <thead>
             <tr>
@@ -71,4 +73,6 @@
     .buttons-container .btn {
     margin:0 20px; /* Memberikan jarak antara tombol */
     }
+
+    .
 </style>
