@@ -16,16 +16,16 @@ use App\Http\Controllers\TransactionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-Route::get('/', [CategoryController::class, 'index'])->name('category');
-Route::get('/category/tambah', [CategoryController::class, 'create']);
-Route::post('/category/store', [CategoryController::class, 'store'])->name('store');
-Route::get('/category/edit/{id}', [CategoryController::class, 'edit']);
-Route::put('/category/update/{id}', [CategoryController::class, 'update']);
-Route::get('/category/hapus/{id}', [CategoryController::class, 'delete']);
-Route::get('/category/destroy/{id}', [CategoryController::class, 'destroy']);
-Route::get('/category/cetak', [CategoryController::class, 'cetak']);
+Route::get('/pengaduan', [CategoryController::class, 'index'])->name('pengaduan.index');
+Route::get('/pengaduan/tambah', [CategoryController::class, 'create'])->name('pengaduan.create');
+Route::post('/pengaduan/store', [CategoryController::class, 'store'])->name('store');
+Route::get('/pengaduan/edit/{id}', [CategoryController::class, 'edit']);
+Route::put('/pengaduan/update/{id}', [CategoryController::class, 'update']);
+Route::get('/pengaduan/hapus/{id}', [CategoryController::class, 'delete']);
+Route::get('/pengaduan/destroy/{id}', [CategoryController::class, 'destroy']);
+Route::get('/pengaduan/cetak', [CategoryController::class, 'cetak'])->name('pengaduan.cetak');
 
 Route::get('/transaction', [TransactionController::class, 'index']);
 Route::get('/transaction/tambah', [TransactionController::class, 'create']);

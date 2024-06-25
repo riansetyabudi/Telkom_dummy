@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('title')
-    Hapus Category | Catshop Admin
+    Hapus Category
 @endsection
 
 @section('content')
-    <h3>Hapus Categories</h3>
+    <h3>Hapus Laporan</h3>
     <div class="form-login">
         <h4>Ingin Menghapus Data ?</h4>
         <button type="submit" class="btn btn-simpan" name="hapus" style="width: 40%; margin: 20px auto;">
@@ -14,7 +14,7 @@
             </a>
         </button>
         <button type="submit" class="btn btn-simpan" name="tidak" style="width: 40%; margin: 20px auto;">
-            <a href="{{ route('category') }}">
+            <a href="{{ route('pengaduan.index') }}">
                 No
             </a>
         </button>

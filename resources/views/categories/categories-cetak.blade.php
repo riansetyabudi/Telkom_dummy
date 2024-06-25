@@ -36,27 +36,29 @@
 </head>
 
 <body>
-    <h3>Data Categories</h3>
+    <h3>Report Laporan</h3>
     <table class="table-data">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Categories</th>
-                <th>Price</th>
+                <th>Photo</th>
+                <th>Ruangan</th>
+                <th>Keterangan</th>
             </tr>
         </thead>
         <tbody>
-            @forelse ($categories as $category)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $category->nama }}</td>
-                    <td>Rp. {{ number_format($category->harga) }}</td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="4" align="center">Tidak ada data</td>
-                </tr>
-            @endforelse
+            @foreach ($categories as $category)
+<tr>
+    <td>{{ $loop->iteration }}</td>
+    <td>{{ $category->nama }}</td>
+    <td>
+        <form action="/category/update/{{ $category->id_categories }}" method="POST">
+            @csrf
+            <input type="text" name="harga" value="{{ $category->harga }}" onchange="this.form.submit()">
+        </form>
+    </td>
+</tr>
+@endforeach
+
         </tbody>
 </body>
 

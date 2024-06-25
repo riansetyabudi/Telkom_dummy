@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categories.categories', compact('categories'));
+        return view('data.data_pengaduan', compact('categories'));
     }
 
     public function create()
@@ -39,7 +39,7 @@ class CategoryController extends Controller
             'gambar' => $nama_gambar,
         ]);
 
-        return redirect()->route('category');
+        return redirect()->route('pengaduan.index');
     }
 
     public function edit($id_categories)
@@ -73,7 +73,7 @@ class CategoryController extends Controller
             'harga' => $request->harga,
         ]);
 
-         return redirect()->route('category');
+        return redirect()->route('pengaduan.index');
     }
 
     public function delete($id_categories)
@@ -87,7 +87,7 @@ class CategoryController extends Controller
         $category = Category::find($id_categories);
         File::delete('img_categories/'.$category->gambar);
         $category->delete();
-         return redirect()->route('category');
+        return redirect()->route('pengaduan.index');
     }
     public function cetak()
     {
